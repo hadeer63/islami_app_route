@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/hadeth_details.dart';
 import 'package:islami_app/hadeth_model.dart';
+import 'package:islami_app/myThemedata.dart';
 
 class AhadethTab extends StatelessWidget {
   List<HadethModel> allAhadeth = [];
@@ -8,7 +10,47 @@ class AhadethTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     loadHadeth();
-    return Column();
+    return Column(
+      children: [
+        Image.asset("assets/images/ahadeth_bg.png"),
+        Divider(
+          thickness: 3,
+          color: MyThemeData.primaryColor,
+        ),
+        Text("Ahadeth",
+            style: TextStyle(
+              color: MyThemeData.blackColor,
+            )),
+        Divider(
+          thickness: 3,
+          color: MyThemeData.primaryColor,
+        ),
+        Expanded(
+            child: ListView.separated(
+          separatorBuilder: (context, index) => Divider(
+            thickness: 1,
+            indent: 40,
+            endIndent: 40,
+            color: MyThemeData.primaryColor,
+          ),
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, HadethDetails.routeName,
+                    arguments: allAhadeth[index]);
+              },
+              child: Center(
+                  child: Text(
+                allAhadeth[index].title,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall,
+              )),
+            );
+          },
+          itemCount: allAhadeth.length,
+        ))
+      ],
+    );
   }
 
   // void loadHadeth()async{
