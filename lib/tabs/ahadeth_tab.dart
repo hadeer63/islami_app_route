@@ -1,12 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:islami_app/hadeth_model.dart';
 
 class AhadethTab extends StatelessWidget {
-  const AhadethTab({super.key});
+  List<HadethModel> allAhadeth = [];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-    );
+    loadHadeth();
+    return Column();
+  }
+
+  // void loadHadeth()async{
+  //  String Ahadeth= await rootBundle.loadString("assets/files/ahadeth.txt");
+  // } or
+  void loadHadeth() {
+    rootBundle.loadString("assets/files/ahadeth.txt").then((ahadeth) {
+      List<String> ahadethList = ahadeth.split("#");
+      for (int i = 0; i < ahadethList.length; i++) {
+        String HadethOne = ahadethList[i];
+        List<String> hadethOneLines = HadethOne.trim().split("\n");
+        String title = hadethOneLines[0];
+        hadethOneLines.removeAt(0);
+        List<String> content = hadethOneLines;
+        HadethModel hadethModel = HadethModel(title, content);
+        print(hadethModel.title);
+        allAhadeth.add(hadethModel);
+      }
+    }).catchError((e) {
+      print(e.toString());
+    });
   }
 }
