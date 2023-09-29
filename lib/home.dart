@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/myThemedata.dart';
 import 'package:islami_app/tabs/ahadeth_tab.dart';
 import 'package:islami_app/tabs/quran_tab.dart';
@@ -27,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text("Islami", style: Theme.of(context).textTheme.bodyLarge),
+            title: Text(AppLocalizations.of(context)!.appTitle,
+                style: Theme.of(context).textTheme.bodyLarge),
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,
@@ -41,24 +43,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: ImageIcon(
                   AssetImage("assets/images/quran.png"),
                 ),
-                label: "Quran",
+                label: AppLocalizations.of(context)!.quran,
                 backgroundColor: MyThemeData.primaryColor,
               ),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage("assets/images/sebha.png")),
-                  label: "Sebha",
+                  label: AppLocalizations.of(context)!.sebha,
                   backgroundColor: MyThemeData.primaryColor),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage("assets/images/radio.png")),
-                  label: "Radio",
+                  label: AppLocalizations.of(context)!.radio,
                   backgroundColor: MyThemeData.primaryColor),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
-                  label: "Ahadeth",
+                  label: AppLocalizations.of(context)!.ahadeth,
                   backgroundColor: MyThemeData.primaryColor),
               BottomNavigationBarItem(
                   icon: Icon(Icons.settings),
-                  label: "Settings",
+                  label: AppLocalizations.of(context)!.settings,
                   backgroundColor: MyThemeData.primaryColor),
             ],
             selectedItemColor: MyThemeData.blackColor,
