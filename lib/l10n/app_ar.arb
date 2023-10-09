@@ -5,5 +5,11 @@
   "quran": "القرآن",
   "sebha": "السبحه",
   "radio": "الراديو",
-  "settings": "الاعدادات"
+  "settings": "الاعدادات",
+  "english": "انجليزي",
+  "arabic": "عربي",
+  "language": "اللغه",
+  "themeing": "الثمه",
+  "dark": "ليلي",
+  "light": "نهاري"
 }

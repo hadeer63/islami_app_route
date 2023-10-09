@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami_app/myThemedata.dart';
+import 'package:islami_app/provider/sura_details_provider.dart';
 import 'package:islami_app/sura_model.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeName = 'Sura';
@@ -11,13 +12,13 @@ class SuraDetails extends StatefulWidget {
 }
 
 class _SuraDetailsState extends State<SuraDetails> {
-  List<String> verses = [];
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<SuraDetailsProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    if (verses.isEmpty) {
-      loadFiles(args.index);
+    if (pro.verses.isEmpty) {
+      pro.loadFiles(args.index);
     }
     return Stack(
       children: [
@@ -49,12 +50,12 @@ class _SuraDetailsState extends State<SuraDetails> {
                   itemBuilder: (context, index) {
                     return Center(
                         child: Text(
-                      verses[index],
+                      pro.verses[index],
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodySmall,
                     ));
                   },
-                  itemCount: verses.length,
+                  itemCount: pro.verses.length,
                 ),
               ),
             ),
@@ -62,13 +63,5 @@ class _SuraDetailsState extends State<SuraDetails> {
         ),
       ],
     );
-  }
-
-  loadFiles(int index) async {
-    String file = await rootBundle.loadString("assets/files/${index + 1}.txt");
-    List<String> lines = file.split("\n");
-    print(lines);
-    verses = lines;
-    setState(() {});
   }
 }

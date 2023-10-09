@@ -32,39 +32,42 @@ class RadioTab extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.skip_previous_sharp,
-                        color: MyThemeData.primaryColor,
-                        size: 40,
-                      ),
-                      label: Text(""),
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: Size.fromHeight(50),
-                          primary: Colors.transparent,
-                          elevation: 0.0)),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.skip_previous_sharp,
+                      color: MyThemeData.primaryColor,
+                      size: 40,
+                    ),
+                    label: Text(""),
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.white38),
+                  ),
                 ),
                 Expanded(
                   child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.play_arrow_rounded,
-                          color: MyThemeData.primaryColor, size: 60),
-                      label: Text(""),
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: Size.fromHeight(50),
-                          primary: Colors.transparent,
-                          elevation: 0.0)),
+                    onPressed: () {},
+                    icon: Icon(Icons.play_arrow_rounded,
+                        color: MyThemeData.primaryColor, size: 60),
+                    label: Text(""),
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.white38),
+                  ),
                 ),
                 Expanded(
                   child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.skip_next_sharp,
-                          color: MyThemeData.primaryColor, size: 40),
-                      label: Text(""),
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: Size.fromHeight(50),
-                          primary: Colors.transparent,
-                          elevation: 0.0)),
+                    onPressed: () {},
+                    icon: Icon(Icons.skip_next_sharp,
+                        color: MyThemeData.primaryColor, size: 40),
+                    label: Text(""),
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.white38),
+                  ),
                 )
               ],
             ),
